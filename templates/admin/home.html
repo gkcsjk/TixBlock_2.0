@@ -1,0 +1,21 @@
+{% extends "/admin/base.html" %}
+
+
+{% block content %}
+    <div class="event_table text-center">
+        <a href='/admin/users'><button class="btn btn-outline-primary admin_home_btn">Users</button></a>
+        <br>
+        <br>
+        <a href='/admin/events'><button class="btn btn-outline-primary admin_home_btn">Events</button></a>
+        <br>
+        <br>
+        <a href="/printBlockchain"><button class="btn btn-outline-primary admin_home_btn">View block chains</button></a>
+        <br>
+        <br>
+        <a href='/delUsr'><button class="btn btn-outline-danger admin_home_btn">Delete All Users</button></a>
+        <br>
+        <br>
+        <a href='/delBc'><button class="btn btn-outline-danger admin_home_btn">Delete blockchain</button></a>
+    </div>
+
+{% endblock %}

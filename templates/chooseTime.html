@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <div class="event_table">
+        <h3 class="text-center"> Events: {{ eventName }}</h3>
+        <br>
+        <form action="/chooseSeat/" method="post">
+        <table class="table table-hover">
+            {% for date in dateL %}
+            <tr>
+                <td>Time: {{ date[0] }}</td>
+                <td><button class="btn select_btn btn-outline-primary" type="submit" name="submit" value="{{date[0]}}">Select</button></td>
+            </tr>
+            {% endfor %}
+        </table>
+        </form>
+    </div>
+{#    <form action="/chooseSeat/" method="post">#}
+{#        <p> <h1 id="eventName"> Event Name: {{ eventName }} </h1> </p>#}
+{#        <!-- Time Details -->#}
+{#        {% for date in dateL %}#}
+{##}
+{#            <p>#}
+{#                Time: "{{date[0]}}"#}
+{#                <button type="submit" name="submit" value="{{date[0]}}"> Select </button>#}
+{#            </p>#}
+{#        {% endfor %}#}
+{#    </form>#}
+{##}
+    <!-- Seat Details with Price Details -->
+
+
+    <!-- Image.. -->
+
+{% endblock %}

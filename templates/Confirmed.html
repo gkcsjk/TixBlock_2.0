@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="event_table">
+        <h3>Payment Successful!</h3>
+        <h4>Thanks, you paid AUD <strong>{{amount}}</strong>!</h4>
+        <br>
+        {% for fileName in tickets %}
+        <p>
+        <a href="/ticket/{{fileName}}" target="blank">
+            <button class='btn btn-default'>Download your ticket - "{{fileName}}"</button>
+        </a>
+        </p>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

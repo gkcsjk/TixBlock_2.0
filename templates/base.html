@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/css/lib/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/base.css">
+        {% if title %}
+        <title>{{ title }} - TixBlock</title>
+        {% else %}
+        <title>TixBlock - Book your ticket NOW!</title>
+        {% endif %}
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+                <a class="navbar-brand" href="/"><h1>Tix Block</h1></a>
+            </nav>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-end">
+                <ul class="navbar-nav">
+                    {% if user %}
+                        <li class="nav-item"><a class="nav-link" href="/printBlockchain"><span class="glyphicon glyphicon-user"></span>User: {{ user }}</a></li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="/ConfirmPayment">Pay Current Tickets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout/"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                </ul>
+            </nav>
+        </header>
+        <hr>
+        {% block content %}{% endblock %}
+
+    </body>
+</html>

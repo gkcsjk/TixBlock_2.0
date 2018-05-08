@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- Need to use for loop here for displaying all the tickets.. -->
+    <div class="event_table">
+        <h3 class="text-center">Selected Tickets</h3>
+        <br>
+        <table class="table">
+            <tr>
+                <th>Event Name</th>
+                <th>Time</th>
+                <th>Seat</th>
+                <th>Price</th>
+            </tr>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <h5 class="text-right"> Total price: {{ totPrice }} </h5>
+        <br>
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <a href='/stripePayment'><button class="btn btn-block select_btn btn-outline-primary" type="submit" name="confirm" value="confirm">Confirm</button></a>
+                <br>
+                <br>
+                <a href='/' > <button class="btn select_btn btn-block btn-outline-primary" type="submit" name="continue" value="Continue">Continue</button></a>
+                <br>
+                <br>
+                <a href='/cancelPayment'><button class="btn select_btn btn-block btn-outline-danger" type="submit" name="cancel" value="cancel">Delete All</button></a>
+            </div>
+        </div>
+    </div>
+
+
+{#    {% for row in rows %}#}
+{#        <h1>#}
+{#        <p> Event Name: {{ row[0] }} </p>#}
+{#        <p> Time: {{ row[1] }} </p>#}
+{#        <p> Seat: {{ row[2] }} </p>#}
+{#        <p> Price: {{ row[3] }} </p>#}
+{#        <hr>#}
+{#    {% endfor %}#}
+
+    <!-- Image.. -->
+
+{% endblock %}

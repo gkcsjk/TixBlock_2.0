@@ -1,0 +1,81 @@
+----- Below is the whole blockchain.. -----
+Data of Ticket:
+Genesis block it is. Ticket number:0.
+Timestamp:2018-05-08 15:44:49.188850.
+Hash:9f47ea8c399d344b156fe57c02901df6d56a86615747879a07ceeefc74b5b7e1.
+Previous Hash:0.
+Answer:.
+Author:.
+
+Data of Ticket:
+{'Place': 'Ed Sheeran - Melbourne Town Hall', 'Time': 'Time of the event:09 - 12 - 2017 11:00 pm', 'Seat': '2C', 'Price': 'AUD 210.0'}. Ticket number:1.
+Timestamp:2018-05-08 15:45:37.125993.
+Hash:f64d5db56a1be63c401649c17a48ebcfb1575467a338e5e58cf6cf753f86343e.
+Previous Hash:9f47ea8c399d344b156fe57c02901df6d56a86615747879a07ceeefc74b5b7e1.
+Answer:xHUBuwGAoMbLKAyKJ9atw2xH6Z0LOZNcIc9wpNcNMyVEzQfuEFVBvleV5h6mJq6eonbhpbsACdepSrycwI47QSjc7kAfib0UODv4TlIN3b3fdptos75nDAnvUNN96uF4dyRK21SFaL0PG4AkJmuoR8wM2BIEvYl.
+Author:Karl Guo.
+
+Data of Ticket:
+{'Place': 'P!nk - Broken Life', 'Time': 'Time of the event:13 - 03 - 2013 11:00 pm', 'Seat': '22D', 'Price': 'AUD 4903.0'}. Ticket number:2.
+Timestamp:2018-05-08 15:45:37.195177.
+Hash:2e3d5202a48abb815da3fb42f895cba3f216a9d156f2d067fd57821ae0e88304.
+Previous Hash:f64d5db56a1be63c401649c17a48ebcfb1575467a338e5e58cf6cf753f86343e.
+Answer:2temrPDmnqktQ2eyXqb9oo1GzHJ2Q582GF4ROC4ZHcopqbppzRrcmodmFNJOPr07MVhWeA3SKGPCsb0XljLZU.
+Author:Karl Guo.
+
+Data of Ticket:
+{'Place': 'Hello World', 'Time': 'Time of the event:10 - 12 - 2018', 'Seat': '45D', 'Price': 'AUD 120.0'}. Ticket number:3.
+Timestamp:2018-05-08 15:45:37.237290.
+Hash:26cb30608f29641566634ea8aa9f54a62babbe97b9ae200d33e70647c938c7a1.
+Previous Hash:2e3d5202a48abb815da3fb42f895cba3f216a9d156f2d067fd57821ae0e88304.
+Answer:oM6jSOvK3oxCtFN2fyQ7YqFW11NffvDHhRrkw749Vj1KceihEpVGfy6pTW5Sh8etoVzAqElsuQ7ksFiGh4CrLwZ1GPi6wkUDzHYYM92QR9msbEu1UPI56uStHmUHPaECpya9nisi70TRsJ7afqP4jBN2YSwL1HBpDwm1KTlp3WMtVT2XDgsBAKsnCdlJbgLod.
+Author:Karl Guo.
+
+Data of Ticket:
+{'Place': 'Ed Sheeran - Melbourne Town Hall', 'Time': 'Time of the event:19 - 01 - 2018 11:00 pm', 'Seat': '3B', 'Price': 'AUD 300.0'}. Ticket number:4.
+Timestamp:2018-05-08 15:45:37.239295.
+Hash:e8494895714a67d19a67f213eb6e5c0bd3442a294da53d520c493c146592a10e.
+Previous Hash:26cb30608f29641566634ea8aa9f54a62babbe97b9ae200d33e70647c938c7a1.
+Answer:15x92SUe3StCs8RTUmY2ZVGIw7Xs8J4DLm6uDHqcThizrFaF8YPijm4MMgAhnQECguX1Q8sN7Tae7BBC6xRbkPDNSIRfsXdUQt2A4LFuhLK3omOB0cLrTrSuAKcp6z1KCNoXmBSHJ1M44WR2M9tJqgJtEy.
+Author:Karl Guo.
+
+Data of Ticket:
+{'Place': 'P!nk - Broken Life', 'Time': 'Time of the event:03 - 11 - 2013 13:00 pm', 'Seat': '44A', 'Price': 'AUD 10999.0'}. Ticket number:5.
+Timestamp:2018-05-08 15:45:37.690528.
+Hash:3fb1af1c3f5acf7f7007bc6f4def64a91d7a78ba740563e9c470c574f8c2aaf7.
+Previous Hash:e8494895714a67d19a67f213eb6e5c0bd3442a294da53d520c493c146592a10e.
+Answer:P8xgjDroQLdZMtUfKYcLBQmqLHZPkKkGArOXwsKSoksbU6nUXPmOkKOQRlh8KUkq4.
+Author:Karl Guo.
+
+Data of Ticket:
+{'Place': 'Melbourne Central', 'Time': 'Time of the event:some time', 'Seat': 'some seat', 'Price': 'AUD 100.0'}. Ticket number:6.
+Timestamp:2018-05-08 15:48:02.604500.
+Hash:4b4b705ca384384d998d73b05679fc843b96646094ae5f12d75635ebe311c99e.
+Previous Hash:3fb1af1c3f5acf7f7007bc6f4def64a91d7a78ba740563e9c470c574f8c2aaf7.
+Answer:8xdThAH5eF0AhBAghhK5GTfqTkuO9p6dHv5ywaknwf9y9s8nBBReG7qHDmQiO7Ea06qpzahyEX1kbJpbtQmLagSW9QsEtu1YC3oe.
+Author:admin admin.
+
+Data of Ticket:
+{}. Ticket number:7.
+Timestamp:2018-05-08 15:54:51.112005.
+Hash:3ccb4c318172d1c05ce4d0c0a6b52d3d82448c3f4b1594aee609cce16b8cc90d.
+Previous Hash:4b4b705ca384384d998d73b05679fc843b96646094ae5f12d75635ebe311c99e.
+Answer:fybHzrj8U6SicVsTLRiGOqQCBA2LdU01gV4gprYIEvMb1zRAceeM7hQ3OCDTIVxX5cHBjzjuFcXK4xmzRWWX7JS9zesxHQDNhMQtTkdITYmnvyPs3iq4eSPjdB57X.
+Author:Karl Guo.
+
+Data of Ticket:
+{}. Ticket number:8.
+Timestamp:2018-05-08 15:54:51.459914.
+Hash:c2b5c15d020436c0e437fbdba31515c7ebd428b0c2f15be19fb52bd05005e5ff.
+Previous Hash:3ccb4c318172d1c05ce4d0c0a6b52d3d82448c3f4b1594aee609cce16b8cc90d.
+Answer:RRbAMydgGaIhKOCMdTSpO7jLhr43ymWgujUkcTVuhEyNuZTP3YefyXkJzhxdulkRoJah1cxWSJCa7cAif6rMsip5hpAAz5oM0bmThpaazUbxleNBg8KJVBzVpURAE1rJAaIox5VkdZ2KBdwUEdpIQrGh46W06XOv5yrTdkGU3IRDkLDQM8O4WI2Y39F9ClU.
+Author:Karl Guo.
+
+Data of Ticket:
+{}. Ticket number:9.
+Timestamp:2018-05-08 15:54:51.859977.
+Hash:a0a7c96369ad514d14cb24816eec39dfa1c24b02759ce0c9a68abc1ac255e2d8.
+Previous Hash:c2b5c15d020436c0e437fbdba31515c7ebd428b0c2f15be19fb52bd05005e5ff.
+Answer:wf2k9kJKbM5H1pMyVTMnLAj3YNYk1AnIg1oZh3kilco4Df12JPNBuTwMQHCAqxtr3RtTtfLpawA0hQb2DJa.
+Author:Karl Guo.
+

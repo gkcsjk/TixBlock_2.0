@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+   <body>
+
+      <table border = 1>
+         <thead>
+            <td>Hash</td>
+            <td>Previous Hash</td>
+         </thead>
+
+         {% for row in rows %}
+            <h1>
+            <tr>
+               <td>{{row[0]}}</td>
+               <td>{{row[1]}}</td>
+            </tr>
+            </h1>
+         {% endfor %}
+      </table>
+
+      <p><h1> Current Tickets on Cart </h1></p>
+      <table border = 1>
+         <thead>
+            <td>Place</td>
+            <td>Time</td>
+            <td>Seat</td>
+            <td>Price</td>
+         </thead>
+
+         {% for row in temprows %}
+            <h1>
+            <tr>
+               <td>{{row[0]}}</td>
+               <td>{{row[1]}}</td>
+               <td>{{row[2]}}</td>
+               <td>{{row[3]}}</td>
+            </tr>
+            </h1>
+         {% endfor %}
+      </table>
+
+      <a href = "/">Go back to home page</a>
+
+   </body>
+</html>

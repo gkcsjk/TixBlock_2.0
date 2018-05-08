@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="event_table">
+        <h3 class="text-center"> List of Events: </h3>
+        <br>
+        <form action="/chooseTime/" method="post">
+        <table class="table table-hover">
+            {% for i in eventList %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td><button class="btn select_btn btn-outline-primary" type="submit" name="e" value="{{i[0]}}">Select</button></td>
+            </tr>
+            {% endfor %}
+        </table>
+        </form>
+    </div>
+
+{% endblock %}

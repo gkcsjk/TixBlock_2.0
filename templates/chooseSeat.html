@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <div class="event_table">
+        <h3 class="text-center"> Events: {{ eventName }}</h3>
+        <h3 class="text-center"> Time: {{ eventTime }}</h3>
+        <br>
+        <form action="/ConfirmPayment/" method="post">
+        <table class="table table-hover">
+            {% for i in seatPriceList %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td><button class="btn select_btn btn-outline-primary" type="submit" name="submit" value="{{i[0]}}-{{i[1]}}">Select</button></td>
+            </tr>
+            {% endfor %}
+        </table>
+        </form>
+    </div>
+
+
+{#    #}
+{#    <p>#}
+{#        <h1> Event Name: {{ eventName }} </h1>#}
+{#    </p>#}
+{#    <p> <h1> Event Time: {{ eventTime }} </h1>#}
+{#    </p>#}
+{##}
+{##}
+{#    <form action="/ConfirmPayment/" method="post">#}
+{#        <!-- Seat Details with Price Details -->#}
+{#        {% for i in seatPriceList %}#}
+{#        <div>#}
+{#            <p>#}
+{#                {{ i[0] }} : {{ i[1] }}#}
+{#                <button type="submit" name="submit" value="{{i[0]}}-{{i[1]}}"> Select </button>#}
+{#            </p>#}
+{#        </div>#}
+{#        {% endfor %}#}
+{#    </form>#}
+
+{% endblock %}

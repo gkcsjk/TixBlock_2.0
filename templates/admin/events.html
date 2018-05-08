@@ -1,0 +1,42 @@
+{% extends "/admin/base.html" %}
+{% block content %}
+    <div class="event_table text-center">
+        <h3>View Events</h3>
+        <table class="table table-sm table-hover">
+            <tr>
+                <th>Place</th>
+                <th>Time</th>
+                <th>Seat</th>
+                <th>Price</th>
+                <th>Operation</th>
+            </tr>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event[1] }}</td>
+                    <td>{{ event[2] }}</td>
+                    <td>{{ event[3] }}</td>
+                    <td>{{ event[4] }}</td>
+                    <td><form action="" method="post"><button class="btn-outline-primary btn btn-block" type="submit" name="submit" value={{ event[0] }}>Delete</button></form></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="event_table text-center">
+        <h3>Add New Event</h3>
+        <br>
+        <form action="" method="post">
+            <div class="row row-fluid">
+                <div class="col-6"><input class="form-control" type="text" name="place" placeholder="Place"></div>
+                <div class="col-6"><input class="form-control" type="text" name="time" placeholder="Time"></div>
+            </div>
+            <br>
+            <div class="row row-fluid">
+                <div class="col-6"><input class="form-control" type="text" name="seat" placeholder="Seat"></div>
+                <div class="col-6"><input class="form-control" type="number" name="price" placeholder="Price"></div>
+            </div>
+            <br>
+            <button class="btn btn-outline-primary" type="submit" name="submit" value="Add">Add event</button>
+        </form>
+    </div>
+
+{% endblock %}

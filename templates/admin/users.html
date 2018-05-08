@@ -1,0 +1,25 @@
+{% extends "/admin/base.html" %}
+{% block content %}
+    <div class="text-center event_table">
+        <h4>Users</h4>
+        <br>
+        <table class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="event_table">
+        <a href="/admin/"><button class="btn btn-outline-primary">Back</button></a>
+    </div>
+
+{% endblock %}
