@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="event_table">
+        <p>You can use the card information below to finish the payment in this demo site:</p>
+        <p>Card Number: 4242 4242 4242 4242</p>
+        <p>A valid expiration date in the future</p>
+        <p>Any random CVC number</p>
+    </div>
+    <div class="event_table">
         <form action="/charge" method="post">
             <article>
                 <label>
@@ -10,7 +16,7 @@
 
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button btn-outline-primary"
                 data-key="{{ key }}"
-                data-description="A Flask Charge"
+                data-description="TixBlock Charge"
                 data-amount="{{ amount }}"
                 data-locale="auto"></script>
         </form>

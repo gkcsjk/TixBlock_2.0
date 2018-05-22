@@ -49,18 +49,19 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 current_user_account = ''
 current_user_name = ''
+ticket_selected_count = len(mySql.select_ticket(True))
+
 
 # Homepage, listing all the events available for user to choose
 @app.route('/', methods=['GET', 'POST'])
 @login_required
 def main():
     eventList = mySql.retrieveFromEvents(' DISTINCT place')
-    return render_template('home.html', title='Home', eventList=eventList, user=current_user_name)
+    return render_template('home.html', title='Home', eventList=eventList, cart=ticket_selected_count, user=current_user_name)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    eventList = mySql.retrieveFromEvents(' DISTINCT place')
     if request.method == 'POST':
         firstName = request.form['firstName']
         lastName = request.form['lastName']
@@ -68,23 +69,20 @@ def login():
         if firstName != '' and account != '' and lastName != '':
             # Input is valid
             if mySql.getUser(account) is None:
-                # create user if not exist
+                # create user in database if not exist
                 mySql.insertUser(firstName, lastName, account)
-
-            if mySql.getUser(account)[1] == firstName and mySql.getUser(account)[2] == lastName:
-                # check the user's name with email
-                currentUser = myMain.createUser(firstName, lastName, account)
-                login_user(currentUser)
-                global current_user_account, current_user_name
-                current_user_account = currentUser.account
-                current_user_name = currentUser.firstName + ' ' + currentUser.lastName
-                if mySql.getUser(account)[3] == 1:
-                    return redirect(url_for('admin_home'))
-                return render_template('home.html', title='Home', eventList=eventList, user=current_user_name)
-            else:
-                return render_template('login.html', info="User's name or email is not correct")
+            firstName_db = mySql.getUser(account)[1]
+            lastName_db = mySql.getUser(account)[2]
+            currentUser = myMain.createUser(firstName_db, lastName_db, account)
+            login_user(currentUser)
+            global current_user_account, current_user_name
+            current_user_account = currentUser.account
+            current_user_name = currentUser.firstName + ' ' + currentUser.lastName
+            if mySql.getUser(account)[3] == 1 and firstName == 'admin' and lastName == 'admin':
+                return redirect(url_for('admin_home'))
+            return redirect(url_for('main'))
         else:
-            return render_template('login.html', info='Invalid Input')
+            return render_template('login.html', info='Invalid input, please check your email and names.')
     else:
         return render_template('login.html')
 
@@ -112,7 +110,7 @@ def chooseTime():
         whereClause = ' place = \'' + eventVal + '\''
         dateList = mySql.retrieveFromEvents(' DISTINCT time ', whereClause)
 
-        return render_template('chooseTime.html', eventName=eventVal, dateL=dateList, user=current_user_name)
+        return render_template('chooseTime.html', cart=ticket_selected_count, eventName=eventVal, dateL=dateList, user=current_user_name)
 
 
 # http://tixblock.pythonanywhere.com/chooseSeat/
@@ -137,7 +135,7 @@ def chooseSeatPrice():
             priceSeatDict[i] = i
 
         # Keep in mind every events have their own seat and prices
-        return render_template('chooseSeat.html', eventName=eventVal, eventTime=eventDateTime,
+        return render_template('chooseSeat.html', cart=ticket_selected_count, eventName=eventVal, eventTime=eventDateTime,
                                seatPriceList=priceSeatDict, user=current_user_name)
 
 
@@ -149,6 +147,7 @@ def confirmation():
         global seat
         global price
         global totPrice
+        global ticket_selected_count
         seatPrice = request.form["submit"]
         seatPrice = seatPrice.split('-')
         seat = seatPrice[0]
@@ -158,20 +157,21 @@ def confirmation():
         mySql.insertData(True, eventVal, eventDateTime, seat, price)
         # Get all the unpaid tickets on the temporary list.
         allTempTix = mySql.select_ticket(True)
+        ticket_selected_count = len(allTempTix)
 
         totPrices = mySql.totalPrice()
         totPrice = totPrices[0][0]
 
-        return render_template('ConfirmPayment.html', rows=allTempTix, totPrice=totPrice)
+        return render_template('ConfirmPayment.html', cart=ticket_selected_count, rows=allTempTix, totPrice=totPrice, user=current_user_name)
     else:
         totPrices = mySql.totalPrice()
         totPrice = totPrices[0][0]
 
         if (not totPrice):
             eventList = mySql.retrieveFromEvents(' DISTINCT place')
-            return render_template('home.html', title='Home', eventList=eventList, user=current_user_name)
+            return render_template('home.html', cart=ticket_selected_count, title='Home', eventList=eventList, user=current_user_name)
         allTempTix = mySql.select_ticket(True)
-        return render_template('ConfirmPayment.html', rows=allTempTix, totPrice=totPrice, user=current_user_name)
+        return render_template('ConfirmPayment.html', cart=ticket_selected_count, rows=allTempTix, totPrice=totPrice, user=current_user_name)
 
 
 @app.route('/stripePayment/')
@@ -180,7 +180,7 @@ def stripePayment():
     key = stripe_keys['publishable_key']
     # Since the amount of Stripe payment is represented in cents, to make it readable, times it by 100.
     amount = int(totPrice) * 100
-    return render_template('StripeIndex.html', key=key, amount=amount, user=current_user_name)
+    return render_template('StripeIndex.html', cart=ticket_selected_count, key=key, amount=amount, user=current_user_name)
 
 
 @app.route('/cancelPayment')
@@ -189,7 +189,9 @@ def cancelPayment():
     mySql.rollbackBoughtTicket()
     mySql.dropTemp()
     eventList = mySql.retrieveFromEvents(' DISTINCT place')
-    return render_template('home.html', title='Home', eventList=eventList, user=current_user_name)
+    global ticket_selected_count
+    ticket_selected_count = len(mySql.select_ticket(True))
+    return render_template('home.html', cart=ticket_selected_count, title='Home', eventList=eventList, user=current_user_name)
 
 
 @app.route('/charge', methods=['POST'])
@@ -198,19 +200,19 @@ def charge():
     # This amount is in cents.
     amount = int(totPrice) * 100
 
-    """
-    customer = stripe.Customer.create(
-        email='customer@example.com',
-        source=request.form['stripeToken']
-    )
 
-    charge = stripe.Charge.create(
-        customer=customer.id,
-        amount=amount,
-        currency='aud',
-        description='Flask Charge'
-    )
-    """
+    # customer = stripe.Customer.create(
+    #     email='customer@example.com',
+    #     source=request.form['stripeToken']
+    # )
+    #
+    # charge = stripe.Charge.create(
+    #     customer=customer.id,
+    #     amount=amount,
+    #     currency='aud',
+    #     description='Flask Charge'
+    # )
+
     # Customer has paid! Everything good.. Now the blockchain...
 
     ### Do something about blockchain after payment ###
@@ -232,9 +234,11 @@ def charge():
 
     mySql.deleteBoughtTicket()
     mySql.dropTempTable()
+    global ticket_selected_count
+    ticket_selected_count = len(mySql.select_ticket(True))
     #########################################
 
-    return render_template('Confirmed.html', amount=amount / 100, tickets=filenameL, user=current_user_name)
+    return render_template('Confirmed.html', cart=ticket_selected_count, amount=amount / 100, tickets=filenameL, user=current_user_name)
 
 
 @app.route('/ticket/<filename>', methods=['GET', 'POST'])
@@ -250,10 +254,8 @@ def returnFile(filename):
 @app.route('/printBlockchain/')
 @login_required
 def printBlockchain():
-    rows = mySql.select_ticket(False)
     rows = mySql.getBlockchain()
-    temprows = mySql.select_ticket(True)
-    return render_template("listBlockchain.html", rows=rows, temprows=temprows, user=current_user_name)
+    return render_template("listBlockchain.html", cart=ticket_selected_count, rows=rows, user=current_user_name)
 
 
 @app.route('/delBc/')
@@ -263,7 +265,7 @@ def deleteBc():
     # rows = mySql.select_ticket(True)
     # return render_template("listBlockchain.html",rows = rows)
     eventList = mySql.retrieveFromEvents(' DISTINCT place')
-    return render_template('home.html', title='Home', eventList=eventList, user=current_user_name)
+    return render_template('home.html', cart=ticket_selected_count, title='Home', eventList=eventList, user=current_user_name)
 
 
 @app.route('/delUsr/')

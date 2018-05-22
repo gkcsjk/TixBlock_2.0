@@ -5,6 +5,10 @@
     <div class="event_table">
         <h3 class="text-center"> List of Events: </h3>
         <br>
+        <div>
+            <p>Please select an event from list of events:</p>
+            <br>
+        </div>
         <form action="/chooseTime/" method="post">
         <table class="table table-hover">
             {% for i in eventList %}
@@ -16,5 +20,6 @@
         </table>
         </form>
     </div>
+
 
 {% endblock %}

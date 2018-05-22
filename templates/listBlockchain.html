@@ -1,45 +1,23 @@
-<!doctype html>
-<html>
-   <body>
+{% extends "base.html" %}
 
-      <table border = 1>
-         <thead>
-            <td>Hash</td>
-            <td>Previous Hash</td>
-         </thead>
-
-         {% for row in rows %}
-            <h1>
+{% block content %}
+    <div class="event_table">
+        <h2>Here shows the Blockchain</h2>
+        <p>Every hash is calculated by its data block and previous hash:</p>
+        <table class="table table-bordered">
             <tr>
-               <td>{{row[0]}}</td>
-               <td>{{row[1]}}</td>
+                <th>Hash</th>
+                <th>Previous Hash</th>
             </tr>
-            </h1>
-         {% endfor %}
-      </table>
-
-      <p><h1> Current Tickets on Cart </h1></p>
-      <table border = 1>
-         <thead>
-            <td>Place</td>
-            <td>Time</td>
-            <td>Seat</td>
-            <td>Price</td>
-         </thead>
-
-         {% for row in temprows %}
-            <h1>
+            {% for row in rows %}
             <tr>
-               <td>{{row[0]}}</td>
-               <td>{{row[1]}}</td>
-               <td>{{row[2]}}</td>
-               <td>{{row[3]}}</td>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
             </tr>
-            </h1>
-         {% endfor %}
-      </table>
+            {% endfor %}
+        </table>
+    </div>
 
       <a href = "/">Go back to home page</a>
 
-   </body>
-</html>
+{% endblock %}

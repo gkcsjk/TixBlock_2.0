@@ -6,6 +6,10 @@
     <div class="event_table">
         <h3 class="text-center"> Events: {{ eventName }}</h3>
         <br>
+        <div>
+            <p>Please select a time that suits you:</p>
+            <br>
+        </div>
         <form action="/chooseSeat/" method="post">
         <table class="table table-hover">
             {% for date in dateL %}
