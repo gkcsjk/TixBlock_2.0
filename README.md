@@ -53,12 +53,12 @@ https://www.jetbrains.com/help/pycharm/quick-start-guide.html
 ```
 pip install -r requirements.txt
 ```
-## run a test
+## Run a test
 * Please refer to [flask quickstart](http://flask.pocoo.org/docs/1.0/quickstart/)
 * If you are using Pycharm, you can configure at ```Run->Edit Configurations``` and set the target to ```app.py```.
 You can also change other setting such as environment, Python interpreter, etc.
 
-## run at PythonAnywhere.com
+## Run at PythonAnywhere.com
 * Register/Login to [PythonAnywhere](https://www.pythonanywhere.com/), you will be directed into ```Dashboard tag``` after login.
 You can see there are six tabs ```Dashboard```, ```Consoles```, ```Files```, ```Web```, ```Task```, and ```Database```.
 * Create a new web app in ```Web tab``` with the option ```Flask``` in ```Python 3.6```
