@@ -73,5 +73,18 @@ pip3 install -r requirments.txt
 * In the ```Web tab```, change the ```Source Code```, ```Working directory``` to your file path, and modify the ```WSGI configuration file``` to make sure that they match your project path
 * You site should now be well configured, if not, please refer to ```Log files``` in ```Web tab``` for more information.
 * You can view your files in ```File tab``` as well.
+## How to use
+### As a user
+* Login first name, last name and email. The system will record the user information
+* Choose events, time and seats, pay with the test credit card. 
+* Download the ticket and you can see the hash.
+### As administrator
+* Login with ```admin```, ```admin```, ```info@tixblock``` as first name, last name and email
+* You can view the users, events, add events, delete users and events and view/delete blockchains......
+
+## Possible Errors and Future development
+* When deployed to PythonAnywhere, there may be some path errors. You need to change and configure the path of ```ticket``` folder and ```database.db```. Othewise, you may find you cannot downlaod tickets or cannot login as an admin.
+* Although I added users to database, they are not go with the cart or tickets objects which means that all users are sharing the same cart info and ticket info. 
+* The project is not a real Blockchain and what it does is to hash the ticket info only. You may want to refer to application on Ethereum --- ```Dapp Development``` for more information. Here are some useful links:[Truffle](https://truffleframework.com/), [Dapp for beginners](https://dappsforbeginners.wordpress.com/tutorials/your-first-dapp/), [State of Dapps](https://www.stateofthedapps.com/).
 
 
