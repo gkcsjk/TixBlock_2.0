@@ -1,7 +1,7 @@
 # TixBlock_2.0
 This project is to simulate the process of booking tickets
 Most of the work was done by Erick Lie. What I did is to organise html structure, add admin tool and login function.
-Visit the demo [here](http://tixblock.pythonanywhere.com/)
+Visit the demo [here](http://tixblock.pythonanywhere.com/).
 ## Project Structure
 ```
   .
@@ -80,7 +80,7 @@ pip3 install -r requirments.txt
 * Choose events, time and seats, pay with the test credit card. 
 * Download the ticket and you can see the hash.
 ### As administrator
-* Login with ```admin```, ```admin```, ```info@tixblock``` as first name, last name and email
+* Login with ```admin```, ```admin```, ```info@tixblock.com``` as first name, last name and email
 * You can view the users, events, add events, delete users and events and view/delete blockchains......
 
 ## Possible Errors and Future development
