@@ -1,6 +1,7 @@
 # TixBlock_2.0
 This project is to simulate the process of booking tickets
 Most of the work was done by Erick Lie. What I did is to organise html structure, add admin tool and login function.
+Visit the demo [here](http://tixblock.pythonanywhere.com/)
 ## Project Structure
 ```
   .
