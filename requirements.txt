@@ -9,7 +9,7 @@ Flask-Admin==1.5.1
 Flask-Login==0.4.1
 idna==2.6
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 paypalrestsdk==1.13.1
 Pillow==5.1.0
